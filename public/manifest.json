@@ -1,0 +1,22 @@
+{
+  "name": "BOARDR - Find Your Perfect Pad",
+  "short_name": "BOARDR",
+  "description": "Real-time verified rental listings near your campus in Cagayan de Oro",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1f16",
+  "theme_color": "#2d6a4f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
