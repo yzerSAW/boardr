@@ -137,6 +137,18 @@ const ListingDetails = () => {
                     <p className="text-xs text-muted-foreground font-body text-center -mt-1">Pick a day to see the place in person</p>
                   </div>
 
+                  <Button
+  className="w-full bg-primary text-primary-foreground font-display font-semibold gap-2 h-12 text-base"
+  onClick={() => navigate(`/reserve/${listing.id}`)}
+>
+  <Lock className="w-4 h-4" />
+  Secure with Down Payment
+</Button>
+
+<p className="text-xs text-muted-foreground font-body text-center -mt-1">
+  Reserve this room with a down payment
+</p>
+
                   {/* Landlord */}
                   <div className="border-t border-border pt-5">
                     <h4 className="font-display font-semibold text-sm text-muted-foreground mb-3 uppercase tracking-wider">Landlord</h4>

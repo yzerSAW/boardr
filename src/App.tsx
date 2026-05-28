@@ -16,8 +16,25 @@ import AddListing from "./pages/AddListing.tsx";
 import AdminPanel from "./pages/AdminPanel.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
-
+import Pricing from "./pages/Pricing.tsx";
+import PaymentGCash from "./pages/PaymentGCash.tsx";
+import { getUser } from "@/lib/auth";
+import { Navigate } from "react-router-dom";
+import ReservePayment from "./pages/ReservePayment.tsx";
+import Chat from "./pages/Chat.tsx";
+import PricingPreview
+ from "./PricingPreview.tsx";
 const queryClient = new QueryClient();
+
+const RequireAuth = ({ children }: { children: JSX.Element }) => {
+  const user = getUser();
+
+  if (!user) {
+    return <Navigate to="/pricing-preview" replace />;
+  }
+
+  return children;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -38,8 +55,22 @@ const App = () => (
             <Route path="/add-listing" element={<AddListing />} />
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/payment-gcash" element={<PaymentGCash />} />
+            <Route path="/reserve/:id" element={<ReservePayment />} />
+            <Route path="/chat/:id" element={<Chat />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
+            <Route path="/pricing-preview" element={<PricingPreview />} />
+
+<Route
+  path="/pricing"
+  element={
+    <RequireAuth>
+      <Pricing />
+    </RequireAuth>
+  }
+/>
           </Routes>
         </AppShell>
       </BrowserRouter>

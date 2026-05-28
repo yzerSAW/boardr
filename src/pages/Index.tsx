@@ -10,6 +10,7 @@ import StatsSection from "@/components/StatsSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import CTASection from "@/components/CTASection";
 
+
 const featuredListings = mockListings.filter((l) => l.available && l.verified).slice(0, 3);
 
 const Index = () => {
